@@ -15,7 +15,7 @@ export const useBooks = () => {
         ...(doc.data() as Omit<Book, "id">),
       }));
     },
-    staleTime: 1000 * 60, // кеш 1 хвилина
+    staleTime: 1000 * 60,
     refetchOnWindowFocus: false,
   });
 };
