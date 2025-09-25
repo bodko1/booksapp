@@ -1,8 +1,16 @@
+"use client"
+
+import {redirect} from "next/navigation";
+import {useAuth} from "@/context/AuthContext";
 
 export default function Home() {
+  const user = useAuth();
+
+
   return (
-    <div >
-      Hello next!
-    </div>
+    <>
+      { !user ? redirect("/auth/login"): redirect("/books")}
+      )
+    </>
   );
 }

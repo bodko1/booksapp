@@ -2,17 +2,17 @@
 
 import { useBooks } from "@/queries/books";
 import { useAuth } from "@/context/AuthContext";
+import {redirect} from "next/navigation";
 
 
 export default function BooksPage() {
   const { user } = useAuth();
   const { data: books = [], isLoading, error } = useBooks();
 
-  if (!user) return <p>Будь ласка, увійдіть</p>;
+  if (!user)  redirect("/auth/login");
   if (isLoading) return <p>Завантаження книг...</p>;
   if (error) return <p>Помилка: {error.message}</p>;
 
-  console.log("Books from Firestore:", books);
 
 
   return (

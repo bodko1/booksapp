@@ -3,6 +3,7 @@
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Header from "@/components/Header"
 
 const queryClient = new QueryClient();
 
@@ -12,6 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <body>
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
+        <Header/>
         {children}
       </AuthProvider>
     </QueryClientProvider>
